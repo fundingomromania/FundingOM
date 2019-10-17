@@ -113,19 +113,19 @@ class Editor extends React.Component {
                   <h3 className="text-center campaignSettingsTitle">Campaign details</h3>
 
                   <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Campaign Title</label>
                     <input
                       className="form-control"
                       type="text"
-                      placeholder="Campaign Title"
                       value={this.props.title}
                       onChange={this.changeTitle} />
                   </fieldset>
 
                   <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Campaign text</label>
                     <textarea
                       className="form-control"
                       rows="8"
-                      placeholder="Write your campaign (in markdown)"
                       value={this.props.body}
                       onChange={this.changeBody}>
                     </textarea>
@@ -134,19 +134,19 @@ class Editor extends React.Component {
                   <h3 className="text-center campaignSettingsTitle">Payment details</h3>
 
                   <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Money Donation Goal (in euro)</label>
                     <input
                       className="form-control"
                       type="number"
-                      placeholder="What's your money donation goal?"
                       value={this.props.campaignDonationsTarget}
                       onChange={this.changeCampaignDonationsTarget} />
                   </fieldset>
 
                   <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Paypal Email Address</label>
                     <input
                       className="form-control"
                       type="email"
-                      placeholder="Paypal email account"
                       value={this.props.paypalAddress} 
                       onChange={this.changePaypalAddress} />
                   </fieldset>
