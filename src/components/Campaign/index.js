@@ -134,7 +134,7 @@ class Campaign extends React.Component {
     }
 
     const markup = { __html: marked(this.props.campaign.body, { sanitize: true }) };
-    const shareUrl = this.props.location.pathname;
+    const shareUrl = "https://fundingomromania.com" + this.props.location.pathname;
     const canModify = this.props.currentUser &&
       this.props.currentUser.username === this.props.campaign.author.username;
     return (
