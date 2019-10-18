@@ -59,13 +59,35 @@ class Campaign extends React.Component {
     this.submitForm = () => {
       
       this.setState({ body: '' });
+      if(this.props.campaign.youtubeLink){
+        var youtubeLink = this.props.campaign.youtubeLink;
+        if (youtubeLink && youtubeLink.includes("watch?")) {
+          youtubeLink = youtubeLink.replace("watch?v=",  "embed/");
+        }
+      }
+      else {
+        var youtubeLink = '';
+      }
+      if (this.props.campaign.donationsNumber){
+        var donationsNumber = this.props.campaign.donationsNumber;
+      }
+      else {
+        var donationsNumber = 0;
+      }
+      if (this.props.campaign.totalDonations){
+        var totalDonations = this.props.campaign.totalDonations;
+      }
+      else {
+        var totalDonations = 0;
+      }
       const campaign = {
         title: this.props.campaign.title,
         paypalAddress: this.props.campaign.paypalAddress,
-        totalDonations: this.props.campaign.totalDonations + Number(this.state.body),
-        donationsNumber: this.props.campaign.donationsNumber + 1,
+        totalDonations: totalDonations + Number(this.state.body),
+        donationsNumber: donationsNumber + 1,
         campaignDonationsTarget: this.props.campaign.campaignDonationsTarget,
         body: this.props.campaign.body,
+        youtubeLink: youtubeLink,
         tagList: this.props.campaign.tagList
       };
       
@@ -243,6 +265,12 @@ class Campaign extends React.Component {
                   
               </div> 
             
+          </div>
+          <div className="row">
+            <iframe id="ytplayer" type="text/html" width="640" height="360"
+              src={this.props.campaign.youtubeLink}
+              frameborder="0">
+            </iframe>
           </div>
 
           <hr />

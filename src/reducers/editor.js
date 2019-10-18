@@ -18,7 +18,9 @@ export default (state = {}, action) => {
         paypalAddress: action.payload ? action.payload.campaign.paypalAddress : '',
         donationsNumber: action.payload ? action.payload.campaign.donationsNumber : '',
         campaignDonationsTarget: action.payload ? action.payload.campaign.campaignDonationsTarget : '',
+        totalDonations: action.payload ? action.payload.campaign.totalDonations : '',
         body: action.payload ? action.payload.campaign.body : '',
+        youtubelink: action.payload ? action.payload.campaign.youtubelink : '',
         tagInput: '',
         tagList: action.payload ? action.payload.campaign.tagList : []
       };
