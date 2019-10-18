@@ -1,4 +1,9 @@
 
+#ytplayer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .inputLabelCampaign {
     font-family: "Segoe UI","Roboto","Helvetica Neue",Arial;
     font-weight: 600;
