@@ -40,8 +40,10 @@ class Editor extends React.Component {
     this.changePaypalAddress = updateFieldEvent('paypalAddress');
     this.changeDonationsNumber = updateFieldEvent('donationsNumber');
     this.changeCampaignDonationsTarget = updateFieldEvent('campaignDonationsTarget');
+    this.changeTotalDonations = updateFieldEvent('totalDonations');
     // this.changeDescription = updateFieldEvent('description');
     this.changeBody = updateFieldEvent('body');
+    this.changeYoutubeLink = updateFieldEvent('youtubeLink');
     this.changeTagInput = updateFieldEvent('tagInput');
 
     this.watchForEnter = ev => {
@@ -57,14 +59,41 @@ class Editor extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault();
+      // Prepare link with embeded one
+      if (this.props.youtubeLink) {
+        var youtubeLink = this.props.youtubeLink;
+        if (youtubeLink.includes("watch?v=")){
+          youtubeLink = youtubeLink.replace("watch?v=", "embed/");
+        }
+      }
+      else {
+        var youtubeLink = '';
+      }
+      if (this.props.totalDonations) {
+        var totalDonations = this.props.totalDonations;
+      }
+      else {
+        var totalDonations = 0;
+      }
+      if (this.props.donationsNumber) {
+        var donationsNumber = this.props.donationsNumber;
+      }
+      else {
+        var donationsNumber = 0;
+      }
+      
+      // Transform normal link to embeded one
+      
+
       const campaign = {
         title: this.props.title,
         paypalAddress: this.props.paypalAddress,
-        totalDonations: this.props.totalDonations,
-        donationsNumber: 0,
+        totalDonations: totalDonations,
+        donationsNumber: donationsNumber,
         campaignDonationsTarget: this.props.campaignDonationsTarget,
         // description: this.props.description,
         body: this.props.body,
+        youtubeLink: youtubeLink,
         tagList: this.props.tagList
       };
 
@@ -122,7 +151,7 @@ class Editor extends React.Component {
                   </fieldset>
 
                   <fieldset className="form-group">
-                    <label className="text-center inputLabelCampaign">Campaign text</label>
+                    <label className="text-center inputLabelCampaign">Campaign Text</label>
                     <textarea
                       className="form-control"
                       rows="8"
@@ -131,7 +160,26 @@ class Editor extends React.Component {
                     </textarea>
                   </fieldset>
 
+                  <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Youtube Link</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.props.youtubeLink}
+                      onChange={this.changeYoutubeLink} />
+                  </fieldset>
+
                   <h3 className="text-center campaignSettingsTitle">Payment details</h3>
+
+                  <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Money Raised Until Now (in euro)</label>
+                    <input
+                      className="form-control"
+                      type="number"
+                      value={this.props.totalDonations}
+                      onChange={this.changeTotalDonations} />
+                  </fieldset>
+
 
                   <fieldset className="form-group">
                     <label className="text-center inputLabelCampaign">Money Donation Goal (in euro)</label>
