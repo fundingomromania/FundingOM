@@ -296,9 +296,8 @@ a {
 
 .homePage .showcase-img {
     position: relative;
-    background-image: url(../img/showcaseimg.jpg);
     background-color: #D22630;
-    height: 350px;
+    height: 50px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -306,7 +305,6 @@ a {
 
 .profile-page .user-info h4 {
     color: #fff;
-    
 }
 
 .profile-page .user-info {
