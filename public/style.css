@@ -9,6 +9,12 @@
     font-weight: 600;
 }
 
+.homeExploreTitle {
+    font-family: "Segoe UI";
+    font-weight: 900;
+    font-size: 40px;
+}
+
 .btn-primary, disabled.btn-primary {
     background-color: #D22630;
     border-color: #D22630;
