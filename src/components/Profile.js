@@ -79,6 +79,7 @@ class Profile extends React.Component {
     this.props.onLoad(Promise.all([
       agent.Profile.get(this.props.match.params.username),
       agent.Campaigns.byAuthor(this.props.match.params.username)
+
     ]));
   }
 
@@ -96,14 +97,6 @@ class Profile extends React.Component {
             My Campaigns
           </Link>
         </li>
-
-        {/* <li className="nav-item">
-          <Link
-            className="nav-link"
-            to={`/@${this.props.profile.username}/favorites`}>
-            Favorited Campaigns
-          </Link>
-        </li> */}
       </ul>
     );
   }
