@@ -6,6 +6,7 @@ import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
   CHANGE_TAB,
+  FIRST_PAGE_UNLOADED,
   PROFILE_PAGE_LOADED,
   PROFILE_PAGE_UNLOADED,
   PROFILE_FAVORITES_PAGE_LOADED,
@@ -77,6 +78,7 @@ export default (state = {}, action) => {
         currentPage: 0
       };
     case PROFILE_PAGE_UNLOADED:
+    case FIRST_PAGE_UNLOADED:
     case PROFILE_FAVORITES_PAGE_UNLOADED:
       return {};
     default:
