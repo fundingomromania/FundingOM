@@ -20,7 +20,7 @@ export default (state = {}, action) => {
         campaignDonationsTarget: action.payload ? action.payload.campaign.campaignDonationsTarget : '',
         totalDonations: action.payload ? action.payload.campaign.totalDonations : '',
         body: action.payload ? action.payload.campaign.body : '',
-        youtubelink: action.payload ? action.payload.campaign.youtubelink : '',
+        youtubeLink: action.payload ? action.payload.campaign.youtubeLink : '',
         tagInput: '',
         tagList: action.payload ? action.payload.campaign.tagList : []
       };

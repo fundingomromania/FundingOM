@@ -45,7 +45,6 @@ class Editor extends React.Component {
     this.changeBody = updateFieldEvent('body');
     this.changeYoutubeLink = updateFieldEvent('youtubeLink');
     this.changeTagInput = updateFieldEvent('tagInput');
-
     this.watchForEnter = ev => {
       if (ev.keyCode === 13) {
         ev.preventDefault();
@@ -59,7 +58,7 @@ class Editor extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault();
-      // Prepare link with embeded one
+      // Convert link into embeded one
       if (this.props.youtubeLink) {
         var youtubeLink = this.props.youtubeLink;
         if (youtubeLink.includes("watch?v=")){
@@ -82,9 +81,6 @@ class Editor extends React.Component {
         var donationsNumber = 0;
       }
       
-      // Transform normal link to embeded one
-      
-
       const campaign = {
         title: this.props.title,
         paypalAddress: this.props.paypalAddress,
@@ -165,7 +161,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
-                      value={this.props.youtubeLink}
+                      value={this.props.youtubeLink} 
                       onChange={this.changeYoutubeLink} />
                   </fieldset>
 
