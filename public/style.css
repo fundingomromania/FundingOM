@@ -274,6 +274,12 @@ a {
     }
 }
 
+@media only screen and (max-width: 767px) {
+    .donation-details .donation-amount {
+        padding-top: 20px;
+    }
+}
+
 @media only screen and (max-width: 550px) {
     .ReactModal__Content {
         width: 90%;
