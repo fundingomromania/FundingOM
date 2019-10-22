@@ -169,7 +169,7 @@ class Editor extends React.Component {
                   </fieldset>
 
                   <fieldset className="form-group">
-                    <label className="text-center inputLabelCampaign">Campaign Text</label>
+                    <label className="text-center inputLabelCampaign">Campaign Markdown Text</label>
                     <textarea
                       className="form-control"
                       rows="8"

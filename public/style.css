@@ -278,6 +278,11 @@ a {
     .donation-details .donation-amount {
         padding-top: 20px;
     }
+    
+    .home-page {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 @media only screen and (max-width: 550px) {
