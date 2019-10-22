@@ -44,6 +44,7 @@ class Editor extends React.Component {
     // this.changeDescription = updateFieldEvent('description');
     this.changeBody = updateFieldEvent('body');
     this.changeYoutubeLink = updateFieldEvent('youtubeLink');
+    this.changeImage = updateFieldEvent('image');
     this.changeTagInput = updateFieldEvent('tagInput');
     this.watchForEnter = ev => {
       if (ev.keyCode === 13) {
@@ -58,6 +59,7 @@ class Editor extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault();
+
       // Convert link into embeded one
       if (this.props.youtubeLink) {
         var youtubeLink = this.props.youtubeLink;
@@ -68,17 +70,31 @@ class Editor extends React.Component {
       else {
         var youtubeLink = '';
       }
+
       if (this.props.totalDonations) {
         var totalDonations = this.props.totalDonations;
       }
       else {
         var totalDonations = 0;
       }
+
       if (this.props.donationsNumber) {
         var donationsNumber = this.props.donationsNumber;
       }
       else {
         var donationsNumber = 0;
+      }
+
+      // Convert google drive link into direct image link
+      if (this.props.image) {
+        var image = this.props.image;
+        if (image && image.includes("open?id=")) {
+          console.warn(image)
+          image = image.replace("open?id=", "uc?export=view&id=");
+        }
+      }
+      else {
+        var image = '';
       }
       
       const campaign = {
@@ -90,6 +106,7 @@ class Editor extends React.Component {
         // description: this.props.description,
         body: this.props.body,
         youtubeLink: youtubeLink,
+        image: image,
         tagList: this.props.tagList
       };
 
@@ -154,6 +171,15 @@ class Editor extends React.Component {
                       value={this.props.body}
                       onChange={this.changeBody}>
                     </textarea>
+                  </fieldset>
+
+                  <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Campaign Image</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.props.image} 
+                      onChange={this.changeImage} />
                   </fieldset>
 
                   <fieldset className="form-group">

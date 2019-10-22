@@ -59,6 +59,7 @@ class Campaign extends React.Component {
     this.submitForm = () => {
       
       this.setState({ body: '' });
+      // Convert youtube link in embeded one
       if(this.props.campaign.youtubeLink){
         var youtubeLink = this.props.campaign.youtubeLink;
         if (youtubeLink && youtubeLink.includes("watch?")) {
@@ -80,6 +81,17 @@ class Campaign extends React.Component {
       else {
         var totalDonations = 0;
       }
+      // Convert google drive link into direct image link
+      if (this.props.campaign.image) {
+        var image = this.props.campaign.image;
+        if (image && image.includes("open?id=")) {
+          image = image.replace("open?id=", "uc?export=view&id=");
+        }
+      }
+      else {
+        var image = '';
+      }
+
       const campaign = {
         title: this.props.campaign.title,
         paypalAddress: this.props.campaign.paypalAddress,
@@ -88,6 +100,7 @@ class Campaign extends React.Component {
         campaignDonationsTarget: this.props.campaign.campaignDonationsTarget,
         body: this.props.campaign.body,
         youtubeLink: youtubeLink,
+        image: image,
         tagList: this.props.campaign.tagList
       };
       
@@ -178,6 +191,7 @@ class Campaign extends React.Component {
           <div className="campaign-content">
             <div className="row top">
                 <div className="donation-img col-md-6 col-xs-12"> 
+                <img src={this.props.campaign.image} className="img-fluid" title="Campaign Image" alt="Campaign"/>
                 </div>
                 <div className="donation-details col-md-6 col-xs-12">
                   <div className="donation-amount">

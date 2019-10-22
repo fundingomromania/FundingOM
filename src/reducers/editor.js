@@ -21,6 +21,7 @@ export default (state = {}, action) => {
         totalDonations: action.payload ? action.payload.campaign.totalDonations : '',
         body: action.payload ? action.payload.campaign.body : '',
         youtubeLink: action.payload ? action.payload.campaign.youtubeLink : '',
+        image: action.payload ? action.payload.campaign.image : '',
         tagInput: '',
         tagList: action.payload ? action.payload.campaign.tagList : []
       };
