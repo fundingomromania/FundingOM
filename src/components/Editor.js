@@ -85,12 +85,17 @@ class Editor extends React.Component {
         var donationsNumber = 0;
       }
 
-      // Convert google drive link into direct image link
+      // Convert image links to embeded one
       if (this.props.image) {
         var image = this.props.image;
+        // change google drive link to embeded one
         if (image && image.includes("open?id=")) {
           console.warn(image)
           image = image.replace("open?id=", "uc?export=view&id=");
+        }
+        // change dropbox link to embeded one 
+        if (image && image.includes("dl=0")) {
+          image = image.replace("dl=0", "raw=1");
         }
       }
       else {

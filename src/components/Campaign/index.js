@@ -87,6 +87,9 @@ class Campaign extends React.Component {
         if (image && image.includes("open?id=")) {
           image = image.replace("open?id=", "uc?export=view&id=");
         }
+        if (image && image.includes("dl=0")) {
+          image = image.replace("dl=0", "raw=1");
+        }
       }
       else {
         var image = '';
