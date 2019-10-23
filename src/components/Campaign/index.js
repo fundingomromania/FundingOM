@@ -112,6 +112,7 @@ class Campaign extends React.Component {
         campaignDonationsTarget: this.props.campaign.campaignDonationsTarget,
         campaignExpiryDate: campaignExpiryDate,
         body: this.props.campaign.body,
+        description: this.props.campaign.description,
         youtubeLink: youtubeLink,
         image: image,
         tagList: this.props.campaign.tagList

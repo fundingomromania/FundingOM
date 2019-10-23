@@ -42,7 +42,7 @@ class Editor extends React.Component {
     this.changeCampaignDonationsTarget = updateFieldEvent('campaignDonationsTarget');
     this.changeTotalDonations = updateFieldEvent('totalDonations');
     this.changeCampaignExpiryDate = updateFieldEvent('campaignExpiryDate');
-    // this.changeDescription = updateFieldEvent('description');
+    this.changeDescription = updateFieldEvent('description');
     this.changeBody = updateFieldEvent('body');
     this.changeYoutubeLink = updateFieldEvent('youtubeLink');
     this.changeImage = updateFieldEvent('image');
@@ -118,7 +118,7 @@ class Editor extends React.Component {
         donationsNumber: donationsNumber,
         campaignDonationsTarget: this.props.campaignDonationsTarget,
         campaignExpiryDate: campaignExpiryDate,
-        // description: this.props.description,
+        description: this.props.description,
         body: this.props.body,
         youtubeLink: youtubeLink,
         image: image,
@@ -186,6 +186,15 @@ class Editor extends React.Component {
                       value={this.props.body}
                       onChange={this.changeBody}>
                     </textarea>
+                  </fieldset>
+
+                  <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Campaign Description</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={this.props.description}
+                      onChange={this.changeDescription} />
                   </fieldset>
 
                   <fieldset className="form-group">
