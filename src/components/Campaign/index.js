@@ -69,18 +69,27 @@ class Campaign extends React.Component {
       else {
         var youtubeLink = '';
       }
+      // Number of donations 
       if (this.props.campaign.donationsNumber){
         var donationsNumber = this.props.campaign.donationsNumber;
       }
       else {
         var donationsNumber = 0;
       }
+      // Total Donations
       if (this.props.campaign.totalDonations){
         var totalDonations = this.props.campaign.totalDonations;
       }
       else {
         var totalDonations = 0;
       }
+      if (this.props.campaign.campaignExpiryDate) {
+        var campaignExpiryDate = this.props.campaign.campaignExpiryDate;
+      }
+      else {
+        var campaignExpiryDate = 0;
+      }
+
       // Convert google drive link into direct image link
       if (this.props.campaign.image) {
         var image = this.props.campaign.image;
@@ -101,6 +110,7 @@ class Campaign extends React.Component {
         totalDonations: totalDonations + Number(this.state.body),
         donationsNumber: donationsNumber + 1,
         campaignDonationsTarget: this.props.campaign.campaignDonationsTarget,
+        campaignExpiryDate: campaignExpiryDate,
         body: this.props.campaign.body,
         youtubeLink: youtubeLink,
         image: image,

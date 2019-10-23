@@ -41,6 +41,7 @@ class Editor extends React.Component {
     this.changeDonationsNumber = updateFieldEvent('donationsNumber');
     this.changeCampaignDonationsTarget = updateFieldEvent('campaignDonationsTarget');
     this.changeTotalDonations = updateFieldEvent('totalDonations');
+    this.changeCampaignExpiryDate = updateFieldEvent('campaignExpiryDate');
     // this.changeDescription = updateFieldEvent('description');
     this.changeBody = updateFieldEvent('body');
     this.changeYoutubeLink = updateFieldEvent('youtubeLink');
@@ -70,19 +71,27 @@ class Editor extends React.Component {
       else {
         var youtubeLink = '';
       }
-
+      // Set Total Donations 
       if (this.props.totalDonations) {
         var totalDonations = this.props.totalDonations;
       }
       else {
         var totalDonations = 0;
       }
-
+      // Set Donation Number
       if (this.props.donationsNumber) {
         var donationsNumber = this.props.donationsNumber;
       }
       else {
         var donationsNumber = 0;
+      }
+
+      // Set Expiry Date 
+      if (this.props.campaignExpiryDate) {
+        var campaignExpiryDate = this.props.campaignExpiryDate;
+      }
+      else {
+        var campaignExpiryDate = 0;
       }
 
       // Convert image links to embeded one
@@ -108,6 +117,7 @@ class Editor extends React.Component {
         totalDonations: totalDonations,
         donationsNumber: donationsNumber,
         campaignDonationsTarget: this.props.campaignDonationsTarget,
+        campaignExpiryDate: campaignExpiryDate,
         // description: this.props.description,
         body: this.props.body,
         youtubeLink: youtubeLink,
@@ -197,6 +207,28 @@ class Editor extends React.Component {
                   </fieldset>
 
                   <h3 className="text-center campaignSettingsTitle">Payment details</h3>
+                  
+                  <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Number Of Days until Campaign Expire</label>
+                    <input
+                      className="form-control"
+                      type="number"
+                      value={this.props.campaignExpiryDate}
+                      onChange={this.changeCampaignExpiryDate} />
+                  </fieldset>
+
+
+
+                  <fieldset className="form-group">
+                    <label className="text-center inputLabelCampaign">Number Of Donations Raised So Far</label>
+                    <input
+                      className="form-control"
+                      type="number"
+                      value={this.props.donationsNumber}
+                      onChange={this.changeDonationsNumber} />
+                  </fieldset>
+
+
 
                   <fieldset className="form-group">
                     <label className="text-center inputLabelCampaign">Money Raised Until Now (in euro)</label>
