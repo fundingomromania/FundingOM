@@ -20,6 +20,11 @@
     border-color: #D22630;
 }
 
+.imgPreview {
+    height: 150px;
+    width: 250px;
+}
+
 .error-messages {
   background: #D22630 !important;
   color: #fff;

@@ -35,40 +35,36 @@ const CampaignPreview = props => {
 
   return (
     <div className="campaign-preview">
-      <div className="campaign-meta"> 
-
-        <div className="info">
-          <Link className="author" to={`/@${campaign.author.username}`}>
-            {campaign.author.username}
-          </Link>
-          <span className="date">
-            {new Date(campaign.createdAt).toDateString()}
-          </span>
+      <div className="row">
+        <div className="col-md-4">
+              <img src={campaign.image} className="img-fluid imgPreview" title="Campaign Image" alt="Campaign"></img>
         </div>
-
-        {/* <div className="pull-xs-right">
-          <button className={favoriteButtonClass} onClick={handleClick}>
-            <i className="ion-heart"></i> {campaign.favoritesCount}
-          </button>
-        </div> */}
-      </div>
-
-      <Link to={`/campaign/${campaign.slug}`} className="preview-link">
-        <h1>{campaign.title}</h1>
-        <p>{campaign.description}</p>
-        <span>Find out more...</span>
-        <ul className="tag-list">
-          {
-            campaign.tagList.map(tag => {
-              return (
-                <li className="tag-default tag-pill tag-outline" key={tag}>
-                  {tag}
-                </li>
-              )
-            })
-          }
-        </ul>
-      </Link>
+        <div className="col-md-6">
+              <Link to={`/campaign/${campaign.slug}`} className="preview-link">
+                <h1>{campaign.title}</h1>
+              </Link>
+          <div className="campaign-meta"> 
+            <div className="row">
+              <div className="info col-md-6">
+                  <Link className="author" to={`/@${campaign.author.username}`}>
+                    {campaign.author.username}
+                  </Link>
+                  <span className="date">
+                    {new Date(campaign.createdAt).toDateString()}
+                  </span>
+              </div>
+            </div>
+          </div> 
+          <div className="row">
+            <p>{campaign.description}</p>
+          </div>
+          <div className="row">
+            <Link to={`/campaign/${campaign.slug}`} className="preview-link">
+              <span>Find out more...</span>
+            </Link>
+          </div>
+        </div>
+      </div>      
     </div>
   );
 }
